@@ -1,0 +1,273 @@
+﻿<Window x:Class="HedgeCalculator.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Hedge Calculator"
+        Height="700"
+        Width="820"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F3F6FB">
+
+    <Grid Margin="24">
+        <Border Background="White"
+                CornerRadius="16"
+                Padding="28"
+                BorderBrush="#E2E8F0"
+                BorderThickness="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Header -->
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Hedge Calculator"
+                               FontSize="28"
+                               FontWeight="SemiBold"
+                               Foreground="#111827"/>
+
+                    <TextBlock Text="Simple protection calculator for main and secondary odds"
+                               Margin="0,6,0,0"
+                               FontSize="14"
+                               Foreground="#6B7280"/>
+                </StackPanel>
+
+                <!-- Inputs -->
+                <Border Grid.Row="2"
+                        Background="#F8FAFC"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="20">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Total bankroll -->
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="8"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Total bankroll"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"
+                                       Foreground="#374151"/>
+
+                            <TextBox x:Name="txtTotalBankroll"
+                                     Grid.Row="2"
+                                     Height="38"
+                                     Padding="10"
+                                     FontSize="14"
+                                     VerticalContentAlignment="Center"/>
+                        </Grid>
+
+                        <!-- Main + Secondary in same line -->
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Main odd -->
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="8"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Main odd"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#374151"/>
+
+                                <TextBox x:Name="txtMainOdd"
+                                         Grid.Row="2"
+                                         Height="38"
+                                         Padding="10"
+                                         FontSize="14"
+                                         VerticalContentAlignment="Center"/>
+                            </Grid>
+
+                            <!-- Secondary odd -->
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="8"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Secondary odd"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#374151"/>
+
+                                <TextBox x:Name="txtSecondaryOdd"
+                                         Grid.Row="2"
+                                         Height="38"
+                                         Padding="10"
+                                         FontSize="14"
+                                         VerticalContentAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+
+                        <!-- Buttons -->
+                        <Grid Grid.Row="4"
+                            HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170"/>
+                                <ColumnDefinition Width="12"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="12"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="btnCalculateMinimumSecondaryOdd"
+                                    Grid.Column="0"
+                                    Content="Min secondary odd"
+                                    Height="40"
+                                    Click="BtnCalculateMinimumSecondaryOdd_Click"
+                                    Background="#0F766E"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    FontWeight="SemiBold"/>
+
+                            <Button x:Name="btnCalculate"
+                                    Grid.Column="2"
+                                    Content="Calculate"
+                                    Height="40"
+                                    Click="BtnCalculate_Click"
+                                    Background="#2563EB"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    FontWeight="SemiBold"/>
+
+                            <Button x:Name="btnClear"
+                                    Grid.Column="4"
+                                    Content="Clear"
+                                    Height="40"
+                                    Click="BtnClear_Click"
+                                    Background="#E5E7EB"
+                                    Foreground="#111827"
+                                    BorderThickness="0"
+                                    FontWeight="SemiBold"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <!-- Results -->
+                <Border Grid.Row="4"
+                        Background="#F8FAFC"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="20">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="18"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Results"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Foreground="#111827"/>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Left column -->
+                            <StackPanel Grid.Column="0">
+                                <TextBlock x:Name="txtMinimumSecondaryOdd"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           Foreground="#374151"/>
+
+                                <TextBlock x:Name="txtMainStake"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           Foreground="#374151"/>
+
+                                <TextBlock x:Name="txtSecondaryStake"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           Foreground="#374151"/>
+
+                                <TextBlock x:Name="txtCoversEntireBankroll"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#111827"/>
+                            </StackPanel>
+
+                            <!-- Right column -->
+                            <StackPanel Grid.Column="2">
+                                <TextBlock x:Name="txtReturnIfMainWins"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           Foreground="#374151"/>
+
+                                <TextBlock x:Name="txtReturnIfSecondaryWins"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           Foreground="#374151"/>
+
+                                <TextBlock x:Name="txtProfitIfMainWins"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#374151"/>
+
+                                <TextBlock x:Name="txtProfitIfSecondaryWins"
+                                           Margin="0,6,0,6"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Foreground="#374151"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <!-- Footer -->
+                <Border Grid.Row="6"
+                        Background="#EEF2FF"
+                        CornerRadius="10"
+                        Padding="14"
+                        BorderBrush="#C7D2FE"
+                        BorderThickness="1">
+                    <TextBlock Text="Tip: first fill Main odd and calculate the minimum secondary odd. Then enter the bankroll and run the full calculation."
+                               TextWrapping="Wrap"
+                               FontSize="13"
+                               Foreground="#3730A3"/>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

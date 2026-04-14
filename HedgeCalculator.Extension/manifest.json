@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Hedge Calculator",
+  "version": "1.0",
+  "description": "Hedge calculator popup - replicates WPF behavior (3 inputs, 3 buttons)",
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

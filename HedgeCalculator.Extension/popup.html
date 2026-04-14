@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hedge Calculator</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Hedge Calculator</h1>
+
+    <label>Total bankroll</label>
+    <input id="totalBankroll" type="text" placeholder="e.g. 100" />
+
+    <label>Main odd</label>
+    <input id="mainOdd" type="text" placeholder="e.g. 2.50" />
+
+    <label>Secondary odd</label>
+    <input id="secondaryOdd" type="text" placeholder="e.g. 1.80" />
+
+    <div class="buttons">
+      <button id="btnCalculateMinimum">Calculate minimum secondary odd</button>
+      <button id="btnCalculate">Calculate</button>
+      <button id="btnClear">Clear</button>
+    </div>
+
+    <div id="results">
+      <p id="minimumSecondaryOdd">Minimum secondary odd for main profit:</p>
+      <p id="mainStake">Main stake:</p>
+      <p id="secondaryStake">Secondary stake:</p>
+      <p id="returnIfMainWins">Return if main wins:</p>
+      <p id="returnIfSecondaryWins">Return if secondary wins:</p>
+      <p id="profitIfMainWins">Profit if main wins:</p>
+      <p id="profitIfSecondaryWins">Profit if secondary wins:</p>
+      <p id="coversEntireBankroll">Secondary covers entire bankroll:</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

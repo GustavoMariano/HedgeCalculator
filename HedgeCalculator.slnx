@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="HedgeCalculator.Domain/HedgeCalculator.Domain.csproj" />
+  <Project Path="HedgeCalculator.Extension/HedgeCalculator.Extension.csproj" />
   <Project Path="HedgeCalculator.Wpf/HedgeCalculator.Wpf.csproj" />
   <Project Path="ProtectionCalculatorServiceTests/ProtectionCalculatorServiceTests.csproj" />
 </Solution>
